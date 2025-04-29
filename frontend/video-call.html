@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="video-call.css">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">E-Healthcare</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="appointment.html">Appointments</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+    
     <div class="video-container">
         <!-- Video Streams -->
         <div class="video-wrapper">
@@ -23,9 +34,114 @@
     </div>
 
     <!-- Include WebRTC & Socket.io -->
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-peer/simplepeer.min.js"></script>
-    <script src="js/video-call.js"></script>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-peer@9.11.0/simplepeer.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Connect to Socket.io server
+            const socket = io("http://localhost:5000");
+            let peer = null;
+            let stream = null;
+            
+            // Get DOM elements
+            const localVideo = document.getElementById('localVideo');
+            const remoteVideo = document.getElementById('remoteVideo');
+            const startCallBtn = document.getElementById('startCall');
+            const answerCallBtn = document.getElementById('answerCall');
+            const endCallBtn = document.getElementById('endCall');
+            
+            // Check if user is logged in
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (!user) {
+                alert('Please login to access video consultation');
+                window.location.href = 'login.html';
+            }
+            
+            // Initialize video
+            async function initializeVideo() {
+                try {
+                    stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                    localVideo.srcObject = stream;
+                } catch (error) {
+                    console.error('Error accessing media devices:', error);
+                    alert('Failed to access camera and microphone');
+                }
+            }
+            
+            // Start call function
+            window.startCall = function() {
+                const receiverId = prompt('Enter the receiver\'s ID:');
+                if (!receiverId) return;
+                
+                peer = new SimplePeer({
+                    initiator: true,
+                    trickle: false,
+                    stream: stream
+                });
+                
+                peer.on('signal', data => {
+                    socket.emit('callUser', {
+                        userToCall: receiverId,
+                        from: user.id,
+                        signal: data
+                    });
+                });
+                
+                peer.on('stream', remoteStream => {
+                    remoteVideo.srcObject = remoteStream;
+                });
+                
+                socket.on('callAccepted', signal => {
+                    peer.signal(signal);
+                });
+            };
+            
+            // Answer call function
+            window.answerCall = function() {
+                peer = new SimplePeer({
+                    initiator: false,
+                    trickle: false,
+                    stream: stream
+                });
+                
+                peer.on('signal', data => {
+                    socket.emit('acceptCall', {
+                        to: socket.callFrom,
+                        signal: data
+                    });
+                });
+                
+                peer.on('stream', remoteStream => {
+                    remoteVideo.srcObject = remoteStream;
+                });
+                
+                peer.signal(socket.callSignal);
+            };
+            
+            // End call function
+            window.endCall = function() {
+                if (peer) {
+                    peer.destroy();
+                }
+                remoteVideo.srcObject = null;
+                socket.emit('endCall');
+            };
+            
+            // Socket events
+            socket.on('callIncoming', data => {
+                socket.callFrom = data.from;
+                socket.callSignal = data.signal;
+                alert(`Incoming call from ${data.from}`);
+                answerCallBtn.disabled = false;
+            });
+            
+            // Initialize
+            initializeVideo();
+            answerCallBtn.disabled = true;
+            endCallBtn.disabled = true;
+        });
+    </script>
 </body>
 </html>
 

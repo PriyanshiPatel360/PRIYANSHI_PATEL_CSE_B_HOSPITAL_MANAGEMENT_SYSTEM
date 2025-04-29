@@ -13,35 +13,70 @@
         <div class="logo">E-Healthcare</div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="#">Doctors</a></li>
-            <li><a href="#">Appointments</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#" class="login-btn">Login</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+            <li><a href="appointment.html">Appointments</a></li>
+            <li><a href="#" onclick="logout()" class="logout-btn" id="logoutBtn" style="display:none;">Logout</a></li>
+            <li><a href="login.html" class="login-btn" id="loginBtn">Login</a></li>
         </ul>
     </nav>
 
     <!-- Doctors Listing -->
     <section class="doctors">
         <h2>Meet Our Doctors</h2>
-        <div class="doctor-container">
+        <div class="doctor-container" id="doctors-container">
+            <!-- Mock Doctor Data -->
             <div class="doctor">
-                <img src="https://images.assetsdelivery.com/compings_v2/vadimgozhda/vadimgozhda1402/vadimgozhda140200355.jpg" alt="Doctor">
-                <h3>Dr. Sophia Brown</h3>
-                <p>Cardiologist | 10+ years experience</p>
-                <button class="btn book-btn">Book Appointment</button>
+                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZG9jdG9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Doctor">
+                <h3>Dr. Sarah Johnson</h3>
+                <p>Cardiology Specialist</p>
+                <p>sarah.johnson@ehealthcare.com</p>
+                <p>Experience: 12 years</p>
+                <button class="btn book-btn" onclick="window.location.href='appointment.html'">Book Appointment</button>
             </div>
+            
             <div class="doctor">
-                <img src="https://img.freepik.com/premium-photo/healthcare-medical-staff-concept-portrait-smiling-male-doctor-posing-with-folded-arms-grey-studio-background-free-space-professional-general-practitioner_396607-89190.jpg" alt="Doctor">
-                <h3>Dr. John Smith</h3>
-                <p>Dermatologist | 8+ years experience</p>
-                <button class="btn book-btn">Book Appointment</button>
+                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGRvY3RvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Doctor">
+                <h3>Dr. David Lee</h3>
+                <p>Neurology Specialist</p>
+                <p>david.lee@ehealthcare.com</p>
+                <p>Experience: 15 years</p>
+                <button class="btn book-btn" onclick="window.location.href='appointment.html'">Book Appointment</button>
             </div>
+            
             <div class="doctor">
-                <img src="https://th.bing.com/th/id/OIP.WZuFeD-_Btx-rRmknaI_9AHaHa?rs=1&pid=ImgDetMain" alt="Doctor">
-                <h3>Dr. Emma Wilson</h3>
-                <p>Neurologist | 12+ years experience</p>
-                <button class="btn book-btn">Book Appointment</button>
+                <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGRvY3RvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Doctor">
+                <h3>Dr. Emily Rodriguez</h3>
+                <p>Pediatric Specialist</p>
+                <p>emily.rodriguez@ehealthcare.com</p>
+                <p>Experience: 10 years</p>
+                <button class="btn book-btn" onclick="window.location.href='appointment.html'">Book Appointment</button>
+            </div>
+            
+            <div class="doctor">
+                <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGRvY3RvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Doctor">
+                <h3>Dr. Michael Chen</h3>
+                <p>Orthopedic Surgeon</p>
+                <p>michael.chen@ehealthcare.com</p>
+                <p>Experience: 18 years</p>
+                <button class="btn book-btn" onclick="window.location.href='appointment.html'">Book Appointment</button>
+            </div>
+            
+            <div class="doctor">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZG9jdG9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Doctor">
+                <h3>Dr. Amanda Patel</h3>
+                <p>Dermatology Specialist</p>
+                <p>amanda.patel@ehealthcare.com</p>
+                <p>Experience: 8 years</p>
+                <button class="btn book-btn" onclick="window.location.href='appointment.html'">Book Appointment</button>
+            </div>
+            
+            <div class="doctor">
+                <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fGRvY3RvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Doctor">
+                <h3>Dr. James Wilson</h3>
+                <p>General Practitioner</p>
+                <p>james.wilson@ehealthcare.com</p>
+                <p>Experience: 14 years</p>
+                <button class="btn book-btn" onclick="window.location.href='appointment.html'">Book Appointment</button>
             </div>
         </div>
     </section>
@@ -51,6 +86,19 @@
         <p>&copy; 2025 E-Healthcare. All Rights Reserved.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Check if user is logged in and show appropriate buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            const loginBtn = document.getElementById('loginBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+            
+            if (user && loginBtn && logoutBtn) {
+                loginBtn.style.display = 'none';
+                logoutBtn.style.display = 'inline-block';
+            }
+        });
+    </script>
 </body>
 </html>

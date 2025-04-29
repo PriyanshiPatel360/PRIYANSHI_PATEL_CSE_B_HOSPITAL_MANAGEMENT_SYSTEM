@@ -1,20 +1,17 @@
-const nodemailer = require("nodemailer");
-
-const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-        user: "your-email@gmail.com",
-        pass: "your-email-password",
-    },
-});
+// This is a mock email service for development
+// In production, replace with actual email service
 
 async function sendEmail(to, subject, text) {
-    await transporter.sendMail({
-        from: "E-Healthcare <your-email@gmail.com>",
-        to,
-        subject,
-        text,
-    });
+    try {
+        console.log('Email would be sent in production:');
+        console.log(`To: ${to}`);
+        console.log(`Subject: ${subject}`);
+        console.log(`Content: ${text}`);
+        return true;
+    } catch (error) {
+        console.error('Error sending email:', error);
+        return false;
+    }
 }
 
 module.exports = sendEmail;

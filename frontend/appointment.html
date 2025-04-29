@@ -14,27 +14,22 @@
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="doctors.html">Doctors</a></li>
-            <li><a href="#">Appointments</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#" class="login-btn">Login</a></li>
+            <li><a href="appointment.html">Appointments</a></li>
+            <li><a href="#" onclick="logout()" class="logout-btn" id="logoutBtn" style="display:none;">Logout</a></li>
         </ul>
     </nav>
 
     <!-- Appointment Booking Form -->
     <section class="appointment">
         <h2>Book an Appointment</h2>
-        <form id="appointmentForm">
-            <select required>
+        <form id="appointment-form">
+            <select id="doctor-list" required>
                 <option value="">Select Doctor</option>
-                <option value="Dr. Sophia Brown">Dr. Sophia Brown</option>
-                <option value="Dr. John Smith">Dr. John Smith</option>
-                <option value="Dr. Emma Wilson">Dr. Emma Wilson</option>
+                <!-- Doctor list will be populated from API -->
             </select>
-            <input type="date" required>
-            <input type="time" required>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
+            <input type="date" id="appointment-date" required>
+            <input type="time" id="appointment-time" required>
+            <p>Logged in as: <span id="username"></span></p>
             <button type="submit" class="btn">Confirm Appointment</button>
         </form>
     </section>
@@ -44,6 +39,6 @@
         <p>&copy; 2025 E-Healthcare. All Rights Reserved.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

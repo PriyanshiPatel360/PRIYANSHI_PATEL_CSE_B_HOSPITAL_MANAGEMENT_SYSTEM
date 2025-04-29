@@ -9,35 +9,31 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="#" class="logo">HealthCare</a>
+        <a href="index.html" class="logo">HealthCare</a>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Doctors</a></li>
-            <li><a href="#">Appointments</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+            <li><a href="appointment.html">Book Appointment</a></li>
             <li><a href="#">Profile</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
         </ul>
     </nav>
 
     <!-- Dashboard Main Content -->
     <div class="dashboard-container">
-        <h1 class="dashboard-header">Welcome to Your Dashboard</h1>
+        <h1 class="dashboard-header">Welcome, <span id="username"></span>!</h1>
+        
         <div class="dashboard-cards">
             <div class="card">
-                <h3>Total Patients</h3>
-                <p>120</p>
+                <h3>Your Appointments</h3>
+                <ul id="appointments-list">
+                    <!-- Appointments will be loaded here -->
+                    <li>Loading appointments...</li>
+                </ul>
             </div>
             <div class="card">
-                <h3>Upcoming Appointments</h3>
-                <p>15</p>
-            </div>
-            <div class="card">
-                <h3>Doctors Available</h3>
-                <p>8</p>
-            </div>
-            <div class="card">
-                <h3>New Messages</h3>
-                <p>5</p>
+                <h3>Book New Appointment</h3>
+                <p><a href="appointment.html" class="btn">Book Now</a></p>
             </div>
         </div>
     </div>
@@ -46,5 +42,7 @@
     <footer class="footer">
         <p>&copy; 2025 HealthCare. All Rights Reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -4,25 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="#" class="logo">Admin Panel</a>
+        <a href="dashboard.html" class="logo">Admin Panel</a>
         <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Doctors</a></li>
-            <li><a href="#">Appointments</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+            <li><a href="appointment.html">Appointments</a></li>
             <li><a href="#">Users</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
         </ul>
     </nav>
 
     <!-- Admin Panel Content -->
     <div class="admin-container">
-        <h2 class="admin-header">Approve Doctors</h2>
-        <ul id="unapproved-doctors" class="doctor-list"></ul>
+        <h2 class="admin-header">Admin Dashboard - Welcome, <span id="username"></span></h2>
+        
+        <div class="admin-section">
+            <h3>Approve Doctors</h3>
+            <p>The following doctors need approval before they can access the system:</p>
+            <ul id="unapproved-doctors" class="doctor-list">
+                <!-- Unapproved doctors will be loaded here -->
+                <li>Loading unapproved doctors...</li>
+            </ul>
+        </div>
     </div>
 
     <!-- Footer -->
