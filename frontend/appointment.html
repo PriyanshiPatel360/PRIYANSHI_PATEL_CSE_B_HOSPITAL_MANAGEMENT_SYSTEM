@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="appointment.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">E-Healthcare</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+            <li><a href="#">Appointments</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#" class="login-btn">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Appointment Booking Form -->
+    <section class="appointment">
+        <h2>Book an Appointment</h2>
+        <form id="appointmentForm">
+            <select required>
+                <option value="">Select Doctor</option>
+                <option value="Dr. Sophia Brown">Dr. Sophia Brown</option>
+                <option value="Dr. John Smith">Dr. John Smith</option>
+                <option value="Dr. Emma Wilson">Dr. Emma Wilson</option>
+            </select>
+            <input type="date" required>
+            <input type="time" required>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit" class="btn">Confirm Appointment</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 E-Healthcare. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

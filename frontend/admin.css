@@ -1,0 +1,110 @@
+/* Admin Panel Styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #1f4037, #99f2c8);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar Styling */
+.navbar {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00d4ff;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: all 0.3s;
+    border-radius: 6px;
+}
+
+.navbar ul li a:hover {
+    background: rgba(0, 255, 255, 0.6);
+    color: black;
+}
+
+/* Admin Panel Main Content */
+.admin-container {
+    margin-top: 100px;
+    padding: 50px 10%;
+    text-align: center;
+}
+
+.admin-header {
+    font-size: 28px;
+    font-weight: bold;
+    color: #005f73;
+    margin-bottom: 20px;
+}
+
+.doctor-list {
+    list-style: none;
+    padding: 0;
+}
+
+.doctor-list li {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.doctor-list li:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Footer */
+.footer {
+    background: rgba(0, 0, 0, 0.85);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+}

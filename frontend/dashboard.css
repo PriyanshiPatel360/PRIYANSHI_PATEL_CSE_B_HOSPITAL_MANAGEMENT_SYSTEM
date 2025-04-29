@@ -1,0 +1,126 @@
+/* Enhanced Dashboard Page Styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar Styling */
+.navbar {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #00d4ff;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    padding: 12px 18px;
+    transition: all 0.3s;
+    border-radius: 6px;
+}
+
+.navbar ul li a:hover {
+    background: rgba(0, 255, 255, 0.6);
+    color: black;
+}
+
+/* Dashboard Main Content */
+.dashboard-container {
+    margin-top: 100px;
+    padding: 50px 10%;
+}
+
+.dashboard-header {
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+    color: #00d4ff;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    text-align: center;
+    border-radius: 12px;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 5px 12px rgba(0, 255, 255, 0.4);
+    cursor: pointer;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.card:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 8px 20px rgba(0, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Footer */
+.footer {
+    background: rgba(0, 0, 0, 0.85);
+    text-align: center;
+    padding: 22px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Consultation</title>
+    <link rel="stylesheet" href="video-call.css">
+</head>
+<body>
+    <div class="video-container">
+        <!-- Video Streams -->
+        <div class="video-wrapper">
+            <video id="localVideo" autoplay muted></video>
+            <video id="remoteVideo" autoplay></video>
+        </div>
+
+        <!-- Call Controls -->
+        <div class="controls">
+            <button id="startCall" onclick="startCall()">Start Call</button>
+            <button id="answerCall" onclick="answerCall()">Answer Call</button>
+            <button id="endCall" onclick="endCall()">End Call</button>
+        </div>
+    </div>
+
+    <!-- Include WebRTC & Socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-peer/simplepeer.min.js"></script>
+    <script src="js/video-call.js"></script>
+</body>
+</html>
+

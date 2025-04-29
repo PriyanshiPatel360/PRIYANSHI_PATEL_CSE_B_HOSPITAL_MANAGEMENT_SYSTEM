@@ -1,0 +1,231 @@
+/* 🌟 General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+}
+
+/* 🏥 Navbar Styling */
+.navbar {
+    background: #007bff;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo */
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+}
+
+/* Navbar Links */
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    position: relative;
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.navbar ul li a:hover {
+    background: white;
+    color: #007bff;
+    border-radius: 5px;
+}
+
+/* Dropdown Menu */
+.navbar ul li .dropdown {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 160px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul li:hover .dropdown {
+    display: block;
+}
+
+.navbar ul li .dropdown a {
+    color: #007bff;
+    padding: 10px;
+    display: block;
+}
+
+.navbar ul li .dropdown a:hover {
+    background: #007bff;
+    color: white;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Appointment Booking Section */
+.appointment {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+}
+
+.appointment h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Appointment Form */
+#appointmentForm {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Form Inputs */
+#appointmentForm select,
+#appointmentForm input,
+#appointmentForm textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    background: #f9f9f9;
+}
+
+/* Input Hover & Focus */
+#appointmentForm select:hover,
+#appointmentForm input:hover,
+#appointmentForm textarea:hover,
+#appointmentForm select:focus,
+#appointmentForm input:focus,
+#appointmentForm textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.3);
+    transform: scale(1.02);
+}
+
+/* Date Picker */
+#appointmentForm input[type="date"] {
+    cursor: pointer;
+}
+
+/* Textarea */
+#appointmentForm textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Submit Button */
+#appointmentForm button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Button Hover Effect */
+#appointmentForm button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Loading Animation */
+#loading {
+    display: none;
+    width: 45px;
+    height: 45px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Loading Animation Keyframes */
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        background: #007bff;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    .navbar ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar.active ul {
+        display: flex;
+    }
+
+    .appointment {
+        padding: 40px 10px;
+    }
+    
+    #appointmentForm {
+        width: 90%;
+    }
+}
