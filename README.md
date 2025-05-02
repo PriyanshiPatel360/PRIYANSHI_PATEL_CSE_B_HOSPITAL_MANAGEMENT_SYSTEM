@@ -11,8 +11,11 @@ This Hospital Management System provides a complete solution for healthcare mana
 - Doctor profiles and specializations
 - Admin dashboard for system management
 
-#Video Explanation Link:
+##Video Explanation Link:
 https://drive.google.com/file/d/1EkKwZL37WmnOGLJ4PDtRjwzNWSf__mOQ/view?usp=drivesdk
+
+##Report Link:
+https://drive.google.com/file/d/1EnhQmx2VPw8_vIiWznsXOwuq4oCYIsGB/view?usp=drivesdk
 
 ## Tech Stack
 
