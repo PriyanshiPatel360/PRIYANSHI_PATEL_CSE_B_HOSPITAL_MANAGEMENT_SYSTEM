@@ -8,13 +8,13 @@
 }
 
 body {
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    background: linear-gradient(to right, #eff2f4, #f2f5f6, #f0f1f2);
     color: white;
 }
 
 /* Navbar Styling */
 .navbar {
-    background: rgba(0, 0, 0, 0.7);
+    background: #00c6ff;
     padding: 15px 10%;
     display: flex;
     justify-content: space-between;
@@ -115,7 +115,7 @@ body {
 .doctor p {
     font-size: 14px;
     margin-bottom: 8px;
-    color: #e0e0e0;
+    color: #0c0c0c;
 }
 
 .doctor p:nth-of-type(1) {

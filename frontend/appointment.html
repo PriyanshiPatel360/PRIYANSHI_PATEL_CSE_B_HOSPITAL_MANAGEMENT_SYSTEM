@@ -1,44 +1,124 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Appointment</title>
-    <link rel="stylesheet" href="appointment.css">
+    <title>Book an Appointment</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .header {
+        background-color: #5E4AE3;
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .header h1 {
+        color: white;
+        margin: 0;
+        font-size: 2.5em;
+        text-align: center;
+    }
+    
+    .appointment-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .appointment-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    select.form-control {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 1em;
+    }
+    
+    .login-text {
+        font-size: 16px;
+        color: #666;
+        margin: 10px 0;
+    }
+    
+    .confirm-btn {
+        background-color: #5E4AE3;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .confirm-btn:hover {
+        background-color: #2D2170;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .appointment-container {
+            margin: 20px;
+            padding: 15px;
+        }
+        
+        .header h1 {
+            font-size: 2em;
+        }
+    }
+    </style>
 </head>
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">E-Healthcare</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="doctors.html">Doctors</a></li>
-            <li><a href="appointment.html">Appointments</a></li>
-            <li><a href="#" onclick="logout()" class="logout-btn" id="logoutBtn" style="display:none;">Logout</a></li>
-        </ul>
-    </nav>
-
-    <!-- Appointment Booking Form -->
-    <section class="appointment">
-        <h2>Book an Appointment</h2>
-        <form id="appointment-form">
-            <select id="doctor-list" required>
-                <option value="">Select Doctor</option>
-                <!-- Doctor list will be populated from API -->
-            </select>
-            <input type="date" id="appointment-date" required>
-            <input type="time" id="appointment-time" required>
-            <p>Logged in as: <span id="username"></span></p>
-            <button type="submit" class="btn">Confirm Appointment</button>
+    <header class="header">
+        <h1>Book an Appointment</h1>
+    </header>
+    <div class="appointment-container">
+        <form class="appointment-form">
+            <div class="form-group">
+                <select id="doctor" class="form-control">
+                    <option value="">Select Doctor</option>
+                    <option value="dr1">Dr. Smith</option>
+                    <option value="dr2">Dr. Johnson</option>
+                    <option value="dr3">Dr. Williams</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <input type="date" id="appointment-date" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <input type="time" id="appointment-time" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <p class="login-text">Logged in as: <span id="user-name"></span></p>
+            </div>
+            
+            <button type="submit" class="confirm-btn">Confirm Appointment</button>
         </form>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 E-Healthcare. All Rights Reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+    </div>
 </body>
 </html>

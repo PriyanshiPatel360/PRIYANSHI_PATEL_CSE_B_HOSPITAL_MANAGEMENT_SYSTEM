@@ -5,6 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="admin.css">
+    <STYLE>
+        /* Light Blue Admin Panel Styling */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        
+        html, body {
+            height: 100%;
+        }
+        
+        body {
+            background: linear-gradient(WHITE);
+            color: #00334e;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Navbar Styling */
+        .navbar {
+            background: #5E4AE3; /* Light blue */
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #004466;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+        
+        .navbar ul li {
+            margin: 0 15px;
+        }
+        
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 10px 15px;
+            transition: all 0.3s;
+            border-radius: 6px;
+            background-color: transparent;
+        }
+        
+        .navbar ul li a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: #004466;
+        }
+        
+        /* Admin Panel Main Content */
+        .admin-container {
+            margin-top: 100px;
+            padding: 50px 10%;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .admin-header {
+            font-size: 28px;
+            font-weight: bold;
+            color: #005f73;
+            margin-bottom: 20px;
+        }
+        
+        .doctor-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .doctor-list li {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+        
+        .doctor-list li:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #5E4AE3;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            border-top: 2px solid rgba(0, 0, 0, 0.1);
+            color: #00334e;
+        }
+        
+    </STYLE>
 </head>
 <body>
     <!-- Navbar -->
@@ -41,4 +158,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-

@@ -3,145 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Consultation</title>
-    <link rel="stylesheet" href="video-call.css">
+    <title>E-Healthcare Video Call</title>
+    <link rel="stylesheet" href="videocall.css">
+    <style>
+      /* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background-color: rgb(242, 244, 246);
+}
+
+/* Navigation styles */
+.nav-menu {
+  background-color: #5E4AE3;
+  padding: 1rem;
+  text-align: center;
+}
+
+.brand-link {
+  color: #000;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.nav-links a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+/* Video container styles */
+.video-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.video-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.video-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  width: 200px;
+  height: 100px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Call control buttons */
+.call-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.call-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.call-btn:hover {
+  transform: scale(1.05);
+}
+
+.start-call {
+  background-color: #28a745;
+}
+
+.answer-call {
+  background-color: #007bff;
+}
+
+.end-call {
+  background-color: #dc3545;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .video-grid {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .video-box {
+      width: 100%;
+      max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+      flex-direction: column;
+      gap: 1rem;
+  }
+
+  .call-controls {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .call-btn {
+      width: 200px;
+  }
+}
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <a href="index.html" class="logo">E-Healthcare</a>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="appointment.html">Appointments</a></li>
-            <li><a href="#" onclick="logout()">Logout</a></li>
+    <nav class="nav-menu">
+        <div class="brand">
+            <a href="#" class="brand-link">E-Healthcare</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Appointments</a></li>
+            <li><a href="#">Logout</a></li>
         </ul>
     </nav>
-    
-    <div class="video-container">
-        <!-- Video Streams -->
-        <div class="video-wrapper">
-            <video id="localVideo" autoplay muted></video>
-            <video id="remoteVideo" autoplay></video>
+
+    <main class="video-container">
+        <div class="video-grid">
+            <div class="video-box">
+                <!-- Doctor's video stream will go here -->
+            </div>
+            <div class="video-box">
+                <!-- Patient's video stream will go here -->
+            </div>
         </div>
 
-        <!-- Call Controls -->
-        <div class="controls">
-            <button id="startCall" onclick="startCall()">Start Call</button>
-            <button id="answerCall" onclick="answerCall()">Answer Call</button>
-            <button id="endCall" onclick="endCall()">End Call</button>
+        <div class="call-controls">
+            <button class="call-btn start-call">Start Call</button>
+            <button class="call-btn answer-call">Answer Call</button>
+            <button class="call-btn end-call">End Call</button>
         </div>
-    </div>
-
-    <!-- Include WebRTC & Socket.io -->
-    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-peer@9.11.0/simplepeer.min.js"></script>
-    <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Connect to Socket.io server
-            const socket = io("http://localhost:5000");
-            let peer = null;
-            let stream = null;
-            
-            // Get DOM elements
-            const localVideo = document.getElementById('localVideo');
-            const remoteVideo = document.getElementById('remoteVideo');
-            const startCallBtn = document.getElementById('startCall');
-            const answerCallBtn = document.getElementById('answerCall');
-            const endCallBtn = document.getElementById('endCall');
-            
-            // Check if user is logged in
-            const user = JSON.parse(localStorage.getItem('user'));
-            if (!user) {
-                alert('Please login to access video consultation');
-                window.location.href = 'login.html';
-            }
-            
-            // Initialize video
-            async function initializeVideo() {
-                try {
-                    stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-                    localVideo.srcObject = stream;
-                } catch (error) {
-                    console.error('Error accessing media devices:', error);
-                    alert('Failed to access camera and microphone');
-                }
-            }
-            
-            // Start call function
-            window.startCall = function() {
-                const receiverId = prompt('Enter the receiver\'s ID:');
-                if (!receiverId) return;
-                
-                peer = new SimplePeer({
-                    initiator: true,
-                    trickle: false,
-                    stream: stream
-                });
-                
-                peer.on('signal', data => {
-                    socket.emit('callUser', {
-                        userToCall: receiverId,
-                        from: user.id,
-                        signal: data
-                    });
-                });
-                
-                peer.on('stream', remoteStream => {
-                    remoteVideo.srcObject = remoteStream;
-                });
-                
-                socket.on('callAccepted', signal => {
-                    peer.signal(signal);
-                });
-            };
-            
-            // Answer call function
-            window.answerCall = function() {
-                peer = new SimplePeer({
-                    initiator: false,
-                    trickle: false,
-                    stream: stream
-                });
-                
-                peer.on('signal', data => {
-                    socket.emit('acceptCall', {
-                        to: socket.callFrom,
-                        signal: data
-                    });
-                });
-                
-                peer.on('stream', remoteStream => {
-                    remoteVideo.srcObject = remoteStream;
-                });
-                
-                peer.signal(socket.callSignal);
-            };
-            
-            // End call function
-            window.endCall = function() {
-                if (peer) {
-                    peer.destroy();
-                }
-                remoteVideo.srcObject = null;
-                socket.emit('endCall');
-            };
-            
-            // Socket events
-            socket.on('callIncoming', data => {
-                socket.callFrom = data.from;
-                socket.callSignal = data.signal;
-                alert(`Incoming call from ${data.from}`);
-                answerCallBtn.disabled = false;
-            });
-            
-            // Initialize
-            initializeVideo();
-            answerCallBtn.disabled = true;
-            endCallBtn.disabled = true;
-        });
-    </script>
+    </main>
 </body>
 </html>
-
