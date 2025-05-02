@@ -11,11 +11,20 @@ This Hospital Management System provides a complete solution for healthcare mana
 - Doctor profiles and specializations
 - Admin dashboard for system management
 
+## Team Members:
+Priyanshi Patel: 2401010268
+Akansha: 2401010195
+Dolly: 2401010196
+Reena : 2401010249
+
 ##Video Explanation Link:
 https://drive.google.com/file/d/1EkKwZL37WmnOGLJ4PDtRjwzNWSf__mOQ/view?usp=drivesdk
 
 ##Report Link:
 https://drive.google.com/file/d/1EnhQmx2VPw8_vIiWznsXOwuq4oCYIsGB/view?usp=drivesdk
+
+##Powerpoint Presentation:
+https://drive.google.com/file/d/1FUWsBMHAOc9axrrlQA2WikdE0p_IBWHb/view?usp=drivesdk
 
 ## Tech Stack
 
